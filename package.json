@@ -4,7 +4,7 @@
   "description": "Building a dummy API with NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "nodemon ./app.js",
     "prepare": "husky install"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/TedVu/NodeJS-API#readme",
   "dependencies": {
+    "express": "^4.18.1",
     "prettier": "^2.7.1"
   },
   "lint-staged": {
@@ -30,6 +31,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.30.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.2"
+    "lint-staged": "^13.0.2",
+    "nodemon": "^2.0.16"
   }
 }
