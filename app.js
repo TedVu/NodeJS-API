@@ -92,10 +92,6 @@ const deleteTour = function (req, res) {
   });
 };
 
-app.get('/api/v1/tours/:id', getTour);
-app.patch('api/v1/tours/:id', updateTour);
-app.delete('api/v1/tours/:id', deleteTour);
-
 app.route('/api/v1/tours/').get(getAllTours).post(createTour);
 app
   .route('/api/v1/tours/:id')
