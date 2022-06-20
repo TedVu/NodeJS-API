@@ -2,9 +2,13 @@ const fs = require('fs');
 const express = require('express');
 
 const app = express();
+const morgan = require('morgan');
 
 // middleware to add data from body to requests object
 app.use(express.json());
+
+// logging middleware
+app.use(morgan('combined'));
 
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
