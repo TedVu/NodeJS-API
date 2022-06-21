@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 // logging middleware
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
