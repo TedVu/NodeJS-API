@@ -10,6 +10,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
+
 // middleware to add data from body to requests object
 app.use(express.json());
 
@@ -23,6 +28,7 @@ const tours = JSON.parse(
 const getAllTours = (req, res) => {
   res.status(200).json({
     status: 'success',
+    requestTime: req.requestTime,
     results: 9,
     data: {
       tours: tours,
