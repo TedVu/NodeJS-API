@@ -4,6 +4,11 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
+app.use((req, res, next) => {
+  console.log('Hello from the middleware');
+  next();
+});
+
 // middleware to add data from body to requests object
 app.use(express.json());
 
