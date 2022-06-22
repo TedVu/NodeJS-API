@@ -154,8 +154,6 @@ app.route('/api/v1/users/').get(getAllUsers).post(createUser);
 
 app.route('api/v1/users/:id').get(getUser).patch(updateUser).delete(deleteUser);
 
-app.route();
-
 const port = 3000;
 
 app.listen(port, () => {
