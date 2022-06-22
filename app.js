@@ -1,7 +1,10 @@
-const fs = require('fs');
 const express = require('express');
 
 const app = express();
+
+const tourRouter = require('./routes/tourRoutes');
+const userRouter = require('./routes/userRoutes');
+
 const morgan = require('morgan');
 
 // note that middleware imposes a specific order
@@ -20,6 +23,9 @@ app.use(express.json());
 
 // logging middleware
 app.use(morgan('dev'));
+
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
 
 const port = 3000;
 
