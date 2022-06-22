@@ -4,7 +4,7 @@
   "description": "Building a dummy API with NodeJS",
   "main": "index.js",
   "scripts": {
-    "develop": "nodemon ./app.js",
+    "develop": "nodemon ./server.js",
     "prepare": "husky install"
   },
   "repository": {
