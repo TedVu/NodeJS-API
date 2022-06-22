@@ -143,12 +143,12 @@ const deleteUser = (req, res) => {
   });
 };
 
-app.route('/api/v1/tours/').get(getAllTours).post(createTour);
-app
-  .route('/api/v1/tours/:id')
-  .get(getTour)
-  .patch(updateTour)
-  .delete(deleteTour);
+const tourRoute = express.Router();
+
+app.use('/api/v1/tours/', tourRoute);
+
+tourRoute.route('/').get(getAllTours).post(createTour);
+tourRoute.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
 
 app.route('/api/v1/users/').get(getAllUsers).post(createUser);
 
