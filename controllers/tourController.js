@@ -3,6 +3,10 @@ const fs = require('fs');
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 );
+
+// Refactored into separate id verification controller
+// Philosophy of Express: Try to work with middleware as much
+// as we can
 exports.checkID = (req, res, next, val) => {
   if (val > tours.length) {
     return res.status(404).json({
@@ -26,6 +30,8 @@ exports.getAllTours = (req, res) => {
 };
 
 exports.getTour = (req, res) => {
+  const id = req.params.id * 1;
+
   const tour = tours.find((el) => el.id === id);
 
   res.status(200).json({
@@ -57,6 +63,8 @@ exports.createTour = (req, res) => {
 };
 
 exports.updateTour = (req, res) => {
+  const id = req.params.id * 1;
+
   res.status(200).json({
     status: 'success',
     data: {
@@ -66,6 +74,8 @@ exports.updateTour = (req, res) => {
 };
 
 exports.deleteTour = function (req, res) {
+  const id = req.params.id * 1;
+
   res.status(204).json({
     status: 'success',
     data: null,
