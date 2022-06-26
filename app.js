@@ -24,7 +24,7 @@ app.use(express.json());
 // logging middleware
 app.use(morgan('dev'));
 
-// middleware to serve static files
+// middleware to serve static files, we can access file without public path
 app.use(express.static(`${__dirname}/public`));
 
 app.use('/api/v1/tours', tourRouter);
