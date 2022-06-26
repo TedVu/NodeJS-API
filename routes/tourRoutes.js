@@ -3,7 +3,9 @@ const express = require('express');
 
 const router = express.Router();
 
-// middleware runs when id is presentt in the urls
+// middleware runs when id is present in the urls
+// and this middleware is local to tour, so only tour routes
+// which have the id in the url will trigger this middleware
 router.param('id', (req, res, next, id) => {
   console.log(`Tour id is: ${id}`);
   next();
