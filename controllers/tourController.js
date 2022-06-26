@@ -4,7 +4,8 @@ const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 );
 
-// Refactored into separate id verification controller
+// Refactored into separate id verification controller with param middleware,
+// we have access to val
 // Philosophy of Express: Try to work with middleware as much
 // as we can
 exports.checkID = (req, res, next, val) => {
@@ -12,6 +13,19 @@ exports.checkID = (req, res, next, val) => {
     return res.status(404).json({
       status: 'fail',
       message: 'Invalid ID',
+    });
+  }
+
+  next();
+};
+
+// Refactored into separate middleware to validate if there is tour name and price
+exports.checkBody = (req, res, next) => {
+  console.log('Called');
+  if (!req.body.name || !req.body.price) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'No tour name and price found',
     });
   }
 
