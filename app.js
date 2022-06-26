@@ -24,6 +24,9 @@ app.use(express.json());
 // logging middleware
 app.use(morgan('dev'));
 
+// middleware to serve static files
+app.use(express.static(`${__dirname}/public`));
+
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 
