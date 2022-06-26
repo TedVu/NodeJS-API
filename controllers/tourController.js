@@ -21,11 +21,10 @@ exports.checkID = (req, res, next, val) => {
 
 // Refactored into separate middleware to validate if there is tour name and price
 exports.checkBody = (req, res, next) => {
-  console.log('Called');
   if (!req.body.name || !req.body.price) {
     return res.status(400).json({
       status: 'fail',
-      message: 'No tour name and price found',
+      message: 'No tour name or price found',
     });
   }
 
