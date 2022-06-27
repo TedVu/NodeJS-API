@@ -22,7 +22,9 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 // logging middleware
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
 // middleware to serve static files, we can access file without public path
 app.use(express.static(`${__dirname}/public`));
