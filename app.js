@@ -1,11 +1,10 @@
 const express = require('express');
 
 const app = express();
+const morgan = require('morgan');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
-
-const morgan = require('morgan');
 
 // note that middleware imposes a specific order
 app.use((req, res, next) => {
