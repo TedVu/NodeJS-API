@@ -15,3 +15,5 @@ const tourSchema = new mongoose.Schema({
 
 // mongoose actually becomes an object-relational mapping
 const Tour = mongoose.model('Tour', tourSchema);
+
+module.exports = Tour;
