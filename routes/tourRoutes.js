@@ -1,12 +1,8 @@
-const tourController = require('../controllers/tourController');
 const express = require('express');
 
-const router = express.Router();
+const tourController = require('../controllers/tourController');
 
-// middleware runs when id is present in the urls
-// and this middleware is local to tour, so only tour routes
-// which have the id in the url will trigger this middleware
-router.param('id', tourController.checkID);
+const router = express.Router();
 
 router
   .route('/')
