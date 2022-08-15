@@ -9,18 +9,6 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-// Refactored into separate middleware to validate if there is tour name and price
-exports.checkBody = (req, res, next) => {
-  if (!req.body.name || !req.body.price) {
-    return res.status(400).json({
-      status: 'fail',
-      message: 'No tour name or price found',
-    });
-  }
-
-  next();
-};
-
 exports.getAllTours = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -45,7 +33,9 @@ exports.getTour = (req, res) => {
   });
 };
 
-exports.createTour = (req, res) => {};
+exports.createTour = async (req, res) => {
+  const newTour = await Tour.create(req.body);
+};
 
 exports.updateTour = (req, res) => {
   const id = req.params.id * 1;
